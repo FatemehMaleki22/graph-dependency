@@ -1,0 +1,54 @@
+{
+  "nodes": [
+    {
+      "id": "LangA",
+      "label": "Language A",
+      "group": "Core",
+      "namespace": "com.itemis.core",
+      "type": "base",
+      "color": "#1f77b4"
+    },
+    {
+      "id": "LangB",
+      "label": "Language B",
+      "group": "Extension",
+      "namespace": "com.itemis.ext.langB",
+      "type": "extension",
+      "color": "#ff7f0e"
+    },
+    {
+      "id": "LangC",
+      "label": "Language C",
+      "group": "Utility",
+      "namespace": "com.itemis.util.langC",
+      "type": "utility",
+      "color": "#2ca02c"
+    }
+  ],
+  "links": [
+    {
+      "source": "LangA",
+      "target": "LangB",
+      "type": "uses",
+      "label": "depends on",
+      "weight": 2,
+      "color": "#999"
+    },
+    {
+      "source": "LangB",
+      "target": "LangC",
+      "type": "uses",
+      "label": "calls",
+      "weight": 1,
+      "color": "#ccc"
+    },
+    {
+      "source": "LangC",
+      "target": "LangA",
+      "type": "cycle",
+      "label": "cyclic ref",
+      "weight": 3,
+      "color": "#d62728"
+    }
+  ]
+}
