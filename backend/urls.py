@@ -22,8 +22,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
 ]
 
-# ایجاد FastAPI app
 app = FastAPI()
-
-# اتصال روتر FastAPI به Django
 app.include_router(graph_router)

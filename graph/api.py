@@ -4,7 +4,6 @@ from django.apps import apps
 
 router = APIRouter()
 
-# تابع synchronous برای دریافت داده‌ها از پایگاه داده
 def get_nodes_and_edges():
     Node = apps.get_model('graph', 'Node')
     Edge = apps.get_model('graph', 'Edge')

@@ -24,13 +24,12 @@ fastapi_app.include_router(graph_router)
 # Django app (asgi compatible)
 django_app = get_asgi_application()
 
-# ترکیب FastAPI و Django با Mount
 from starlette.applications import Starlette
 
 app = Starlette(
     routes=[
-        Mount("/api", app=fastapi_app),    # FastAPI در مسیر /api
-        Mount("/", app=django_app),        # Django در root
+        Mount("/api", app=fastapi_app),    
+        Mount("/", app=django_app),      
     ]
 )
 
