@@ -13,6 +13,8 @@ from django.core.asgi import get_asgi_application
 from fastapi import FastAPI
 from starlette.routing import Mount
 from graph.api import router as graph_router
+from fastapi.middleware.cors import CORSMiddleware
+
 
 os.environ.setdefault("DJANGO_SETTINGS_MODULE", "backend.settings")
 django.setup()
@@ -32,5 +34,11 @@ app = Starlette(
         Mount("/", app=django_app),      
     ]
 )
-
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["http://localhost:5173"],  # یا پورت فرانتت
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
